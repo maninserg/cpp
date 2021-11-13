@@ -30,27 +30,40 @@ int main()
 		{
 			cout << "Hey, " << playerName <<", enter amount to bet: $";
 			cin >> bettingAmount;
+			if (bettingAmount > balance)
+				cout << "Betting balance can't be more than current balance!\n" \
+						 << "\nRe-enter balance\n";
 		}while (bettingAmount > balance);
 
 		do
 		{
 			cout << "Guess any betting number between 1 & 10:";
 			cin >> guess;
+			if (guess <= 0 || guess > 10)
+				cout << "Number should be between 1 to 10!\n" \
+						 << "\nRe-enter number\n";
 		}while (guess < 1 || guess > 10);
- 
+
 		dice = rand() % 10 + 1;
 
 		if (guess == dice)
 		{
+			cout << "\n\nYou are in luck! You have won Rs" << bettingAmount *10;
 			balance += bettingAmount * 10;
 		}
 		else
 		{
+			cout << "\n\nOpps, better luck next time. You lost $ " << bettingAmount;
 			balance -= bettingAmount;
 		}
 		cout << "\nThe winning number was: " <<  dice << "\n";
 
-		cout << "Do you want to play again(y/n)?";
+		if (balance == 0)
+		{
+			cout << "You have no money to play\n\n";
+			break;
+		}
+		cout << "\nDo you want to play again(y/n)?";
 		cin >> choice;
 
 	}while (choice == 'Y' || choice == 'y');
