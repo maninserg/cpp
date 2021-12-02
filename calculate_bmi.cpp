@@ -13,7 +13,7 @@ int main()
 {
 	cout << "\n\t\t=== Calculate of BMI ===\n\n";
 	double Weight=0, Height=0, BMI=0;
-	cout << "Enter your weight(kg) and your height(m) trough a space and press button \'enter\': ";
+	cout << "Enter your weight(kg) and your height(m) trough a space and press a button \'enter\': ";
 	cin >> Weight >> Height;
 	BMI = Weight / (Height * Height);
 	cout << "\n\t=== Report ===\n";
